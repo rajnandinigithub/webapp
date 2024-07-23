@@ -1,0 +1,49 @@
+<!-- onebox.html -->
+<div id="editor">
+    <!-- Custom text editor HTML -->
+    <button id="saveButton">SAVE</button>
+    <button id="variablesButton">Variables</button>
+    <textarea id="replyBox"></textarea>
+    <button id="sendButton">Send</button>
+  </div>
+  
+  <script>
+    document.getElementById('saveButton').addEventListener('click', function() {
+      // Save draft logic
+    });
+  
+    document.getElementById('variablesButton').addEventListener('click', function() {
+      // Insert variables logic
+    });
+  
+    document.getElementById('sendButton').addEventListener('click', function() {
+      const threadId = getSelectedThreadId();
+      const replyContent = document.getElementById('replyBox').value;
+      fetch(`/reply/${threadId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          from: 'email@example.com',
+          to: 'email@example.com',
+          subject: 'Re: Subject',
+          body: replyContent
+        })
+      }).then(response => response.json())
+        .then(data => {
+          console.log('Reply sent');
+        });
+    });
+  
+    function getSelectedThreadId() {
+      // Logic to get the currently selected thread ID
+      return 'some-thread-id';
+    }
+  
+    function openReplyBox(threadId) {
+      // Logic to open the reply box
+      document.getElementById('replyBox').focus();
+    }
+  </script>
+  

@@ -1,0 +1,22 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <!-- Include CSS and JS based on provided design -->
+</head>
+<body>
+  <form id="loginForm">
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Perform login logic and redirect to /google-login
+      window.location.href = '/google-login';
+    });
+  </script>
+</body>
+</html>
